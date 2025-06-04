@@ -6,46 +6,31 @@ Cyber API adalah REST API serbaguna yang menyediakan berbagai fitur keren mulai 
 
 ### 🧠 AI
 - Chat dengan AI
-- Image generation
-- Text summarizer
-- Translate otomatis
+- Image Enhancer
+- Image Removebg
 
 ### 📥 Downloader
 - YouTube MP3/MP4 Downloader
-- TikTok Video (No Watermark)
-- Instagram Media Downloader
-- Facebook, Twitter, dsb
+- Spotify Downloader
+- Soundcloud Downloader
 
 ### 🔎 Search
-- Google Search API
 - YouTube Search
-- Image Search
-- Wikipedia Scraper
+- Spotify Search
+- Soundcloud Search
+- Lyrics Search
 
 ### 🛠 Tools
-- Background Remover
-- Image Upscaler
-- Text-to-Speech
+- Day Off Checker
 - QR Code Generator
-- URL Shortener
+- Spotify Daily Chart
 
 ### 🎮 Entertainment
-- Random Anime/Meme
-- Truth or Dare Generator
-- Game Trivia
-- Chatbot Personality Switcher
+- Random Anime Picture
+- Anime Quote
+- Joke
+- Meme
+- Rizz
+- Fun Facts
 
 ---
-
-## 🚀 Cara Install & Run
-
-```bash
-# clone repo
-git clone https://github.com/yourusername/cyber-api
-cd cyber-api
-
-# install dependencies
-npm install # atau pip install -r requirements.txt (tergantung bahasa)
-
-# run server
-npm start # atau python app.py
