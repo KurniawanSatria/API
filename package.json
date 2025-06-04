@@ -1,0 +1,50 @@
+{
+  "name": "satzz_api",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src --ext js",
+    "start": "nodemon src --ext js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@distube/ytdl-core": "^4.15.9",
+    "@google/generative-ai": "^0.21.0",
+    "@vercel/blob": "^1.0.1",
+    "axios": "^1.7.9",
+    "axios-cookiejar-support": "^5.0.5",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
+    "ejs": "^3.1.10",
+    "express": "^4.18.2",
+    "fake-useragent": "^1.0.1",
+    "form-data": "^4.0.2",
+    "got": "^13.0.0",
+    "jimp": "^0.16.1",
+    "lodash": "^4.17.21",
+    "mime-types": "^2.1.35",
+    "moment-timezone": "^0.5.46",
+    "morgan": "^1.10.0",
+    "openai": "^4.100.0",
+    "os": "^0.1.2",
+    "pidusage": "^4.0.1",
+    "qrcode": "^1.5.4",
+    "request": "^2.88.2",
+    "ssl-express-www": "^3.2.1",
+    "stream": "^0.0.3",
+    "systeminformation": "^5.25.11",
+    "tough-cookie": "^5.1.0",
+    "undici": "^7.2.3",
+    "vm": "^0.1.0",
+    "yt-search": "^2.13.1",
+    "ytdl-core": "npm:@distube/ytdl-core@latest"
+  },
+  "devDependencies": {
+    "nodemon": "github:SatzzDev/nodemon"
+  }
+}

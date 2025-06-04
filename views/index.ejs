@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="synthwave">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber API</title>
+<link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+<link href='https://cdn.boxicons.com/fonts/transformations.min.css' rel='stylesheet'>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17/dist/sweetalert2.all.min.js" integrity="sha256-lCHT/LfuZjRp+PdpWns/vKrnSn367D/g1E6Ju18wiH0=" crossorigin="anonymous"></script>
+</head>
+<body class="bg-base-200">
+<div class="drawer lg:drawer-open">
+<input id="sidebar-drawer" type="checkbox" class="drawer-toggle" />
+<!-- Sidebar -->
+<!-- Sidebar -->
+<div class="drawer-side">
+<label for="sidebar-drawer" class="drawer-overlay"></label>
+<aside class="menu p-4 w-64 bg-base-100 text-base-content min-h-full">
+<div class="flex items-center justify-between mb-4">
+<h1 class="text-3xl font-bold">
+<span class="text-primary ml-7">CYBER</span><span class="text-secondary">API</span>
+</h1>
+<label for="sidebar-drawer" class="btn btn-square btn-sm drawer-button"><i class="bx bx-x text-sm"></i>
+</label>
+</div>
+
+<ul class="menu text-lg space-y-1 w-full rounded-box">
+<li><a class="active"><i class="bx bx-dashboard bx-sm mr-2"></i> Dashboard</a></li>
+
+<li>
+<details>
+<summary><i class='bx bx-psychology bx-sm mr-2'></i> AI</summary>
+<ul class="pl-4 text-sm">
+<li><a href="/v1/ai/gpt-4o">GPT-4o</a></li>
+<li><a href="/v1/ai/gpt-4o-mini">GPT-4o-Mini</a></li>
+<li><a href="/v1/ai/claude-3.5-haiku">Claude-3.5-Haiku</a></li>
+<li><a href="/v1/ai/claude-3.7-sonnet">Claude-3.7-Sonnet</a></li>
+<li><a href="/v1/removebg">Remove Background</a></li>
+<li><a href="/v1/enhance">Image Enhancer</a></li>
+</ul>
+</details>
+</li>
+
+<li>
+<details>
+<summary><i class='bx bx-search-alt bx-sm mr-2'></i> Search</summary>
+<ul class="pl-4 text-sm">
+<li><a href="/v1/spotify">Spotify</a></li>
+<li><a href="/v1/soundcloud">Soundcloud</a></li>
+<li><a href="/v1/sugest">Lyrics Sugest</a></li>
+<li><a href="/v1/lyrics">Lyrics Search</a></li>
+</ul>
+</details>
+</li>
+
+<li>
+<details>
+<summary><i class='bx bx-chevrons-down bx-sm mr-2'></i> Downloader</summary>
+<ul class="pl-4 text-sm">
+<li><a href="/v1/ytmp3">Youtube MP3</a></li>
+<li><a href="/v1/ytmp4">Youtube MP4</a></li>
+<li><a href="/v1/spotifydl">Spotify</a></li>
+<li><a href="/v1/soundclouddl">Soundcloud</a></li>
+</ul>
+</details>
+</li>
+
+<li>
+<details>
+<summary><i class="bx bx-axe bx-sm mr-2"></i> Tools</summary>
+<ul class="pl-4 text-base space-y-1">
+<li><a href="/v1/qrcode">QR Code</a></li>
+<li><a href="/v1/dayoff">Day Off</a></li>
+<li><a href="/v1/SpotifyDailyChart">Spotify Chart</a></li>
+</ul>
+</details>
+</li>
+
+<li>
+<details>
+<summary><i class="bx bx-balloon bx-sm mr-2"></i> Entertaiment</summary>
+<ul class="pl-4 text-sm">
+<li><a href="/v1/anime">Anime Pic</a></li>
+<li><a href="/v1/animequote">Anime Quote</a></li>
+<li><a href="/v1/joke">Joke</a></li>
+<li><a href="/v1/meme">Meme</a></li>
+<li><a href="/v1/quote">Quote</a></li>
+<li><a href="/v1/rizz">Rizz Line</a></li>
+<li><a href="/v1/funfact">Fun Fact</a></li>
+</ul>
+</details>
+</li>
+
+</ul>
+</aside>
+</div>
+
+
+<!-- Main Content -->
+<div class="drawer-content p-4">
+<!-- Mobile Header -->
+<header class="navbar bg-base-100 rounded-box shadow mb-4 lg:hidden">
+<div class="flex-1">
+<h1 class="text-xl font-bold ml-2"> <!-- Increased from text-2xl to text-3xl -->
+<span class="animate-pulse">⟨</span>
+<span class="text-primary">CYBER</span><span class="text-secondary">API</span>
+<span class="animate-pulse">⟩</span>
+</h1>
+</div>
+<div class="flex-none gap-2">
+<label class="swap swap-rotate">
+<input type="checkbox" class="theme-controller" value="dracula" />
+<i class="bx bx-sun swap-off text-2xl"></i> <!-- Increased icon size -->
+<i class="bx bx-moon swap-on text-2xl"></i> <!-- Increased icon size -->
+</label>
+<label for="sidebar-drawer" class="btn btn-square btn-ghost">
+<i class="bx bx-sidebar text-2xl"></i> <!-- Increased icon size -->
+</label>
+</div>
+</header>
+<!-- DESKTOP HEADER (hidden pas mobile) -->
+<header class="navbar bg-base-100 rounded-box shadow mb-4 hidden lg:flex">
+<div class="flex-1">
+<h1 class="text-xl font-bold ml-3">
+<span class="animate-pulse">⟨</span>
+<span class="text-primary">CYBER</span><span class="text-secondary">API</span>
+<span class="animate-pulse">⟩</span>
+</h1>
+</div>
+<div class="flex-none gap-4 mr-3">
+<label class="swap swap-rotate">
+<input type="checkbox" class="theme-controller" value="dracula" />
+<i class="bx bx-sun swap-off text-xl"></i>
+<i class="bx bx-moon swap-on text-xl"></i>
+</label>
+</div>
+</header>
+
+<!-- Dashboard Content -->
+<div class="grid gap-4">
+<!-- Status Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+<div class="card bg-base-100 shadow-xl">
+<div class="card-body">
+<div class="flex justify-between items-center">
+<div>
+<h3 class="card-title text-lg">UPTIME</h3> <!-- Increased to text-lg -->
+<p id="uptime" class="text-3xl font-bold countdown">
+<span class="uptime-h"></span>:
+<span class="uptime-m"></span>:
+<span class="uptime-s"></span>
+</p>
+</div>
+<div class="btn btn-secondary btn-circle">
+<i class="bx bx-timer text-xl"></i> <!-- Increased icon size -->
+</div>
+</div>
+</div>
+</div>
+<div class="card bg-base-100 shadow-xl">
+<div class="card-body">
+<div class="flex justify-between items-center">
+<div>
+<h3 class="card-title text-lg">API REQUESTS</h3> <!-- Increased to text-lg -->
+<p id="api-request-count" class="text-3xl font-bold">5,000</p> <!-- Increased to text-3xl -->
+</div>
+<div class="btn btn-primary btn-circle">
+<i class="bx bx-arrow-big-up text-xl"></i> <!-- Increased icon size -->
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="card bg-base-100 shadow-xl">
+<div class="card-body">
+<div class="flex justify-between items-center">
+<div>
+<h3 class="card-title text-lg">CURRENT TIME</h3>
+<p id="current-time" class="text-3xl font-bold countdown">
+<span class="current-time-h"></span>:
+<span class="current-time-m"></span>:
+<span class="current-time-s"></span>
+</p>
+</div>
+<div class="btn btn-success btn-circle">
+<i class="bx bx-clock-12 text-xl"></i>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- System Performance -->
+<div class="card bg-base-100 shadow-xl">
+<div class="card-body">
+<h3 class="card-title text-lg">SYSTEM PERFORMANCE</h3> <!-- Increased to text-lg -->
+<div class="grid gap-4">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-base">CPU Usage</span> <!-- Increased to text-base -->
+<span id="cpu" class="text-primary font-semibold text-base"></span> <!-- Increased to text-base -->
+</div>
+<progress class="progress progress-primary" value="0" max="100"></progress>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-base">Memory Usage</span> <!-- Increased to text-base -->
+<span id="mem" class="text-secondary font-semibold text-base"></span> <!-- Increased to text-base -->
+</div>
+<progress class="progress progress-secondary" value="0" max="100"></progress>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-base">Disk Usage</span> <!-- Increased to text-base -->
+<span id="disk" class="text-success font-semibold text-base"></span> <!-- Increased to text-base -->
+</div>
+<progress class="progress progress-success" value="0" max="100"></progress>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-base">Heap Usage</span> <!-- Increased to text-base -->
+<span id="heap" class="text-warning font-semibold text-base"></span> <!-- Increased to text-base -->
+</div>
+<progress class="progress progress-warning" value="0" max="100"></progress>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
