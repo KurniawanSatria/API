@@ -39,6 +39,7 @@ headers: {
 'User-Agent': 'Mozilla/5.0',
 'Referer': 'https://www.azlyrics.com/'
 },
+responseType: 'text',
 timeout: 5000
 })
 
