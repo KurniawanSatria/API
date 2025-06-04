@@ -460,11 +460,11 @@ res.status(200).json(r)
 router.get("/lyrics", async(req, res) => {
 let {url, q} = req.query
 if (url && !q) {
-let r = (await fetch('http://fr3.spaceify.eu:25135/v1/lyrics?url='+url)).json()
-res.status(200).json(r)
+let {data} = await axios.get('http://fr3.spaceify.eu:25135/v1/lyrics?url='+url)
+res.status(200).json(data)
 } else if (q && !url) {
-let r = (await fetch('http://fr3.spaceify.eu:25135/v1/lyrics?q='+q)).json()
-res.status(200).json(r)
+let {data} = await axios.get('http://fr3.spaceify.eu:25135/v1/lyrics?q='+q)
+res.status(200).json(data)
 } else return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'invalid parameters.'})
 })
 
