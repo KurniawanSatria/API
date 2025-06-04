@@ -8,7 +8,20 @@ if (!query || query.length < 1) throw new Error('query kosong 😞')
 const searchUrl = `https://search.azlyrics.com/suggest.php?q=${encodeURIComponent(query)}`
 const { body } = await got(searchUrl, {
 headers: {
-'User-Agent': 'Mozilla/5.0'
+'Accept': 'application/json, text/javascript, */*; q=0.01',
+'Accept-Encoding': 'gzip, deflate, br',
+'Accept-Language': 'en-US,en;q=0.9,id-ID;q=0.8,id;q=0.7',
+'DNT': '1',
+'Origin': 'https://www.azlyrics.com',
+'Priority': 'u=1, i',
+'Referer': 'https://www.azlyrics.com/',
+'Sec-Ch-Ua': '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"',
+'Sec-Ch-Ua-Mobile': '?0',
+'Sec-Ch-Ua-Platform': '"Windows"',
+'Sec-Fetch-Dest': 'empty',
+'Sec-Fetch-Mode': 'cors',
+'Sec-Fetch-Site': 'same-site',
+'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36'
 },
 responseType: 'json'
 })
@@ -23,7 +36,20 @@ export async function lyrics(songUrl) {
 if (!songUrl) throw new Error('url kosong 😞')
 const { body: html } = await got(songUrl, {
 headers: {
-'User-Agent': 'Mozilla/5.0'
+'Accept': 'application/json, text/javascript, */*; q=0.01',
+'Accept-Encoding': 'gzip, deflate, br',
+'Accept-Language': 'en-US,en;q=0.9,id-ID;q=0.8,id;q=0.7',
+'DNT': '1',
+'Origin': 'https://www.azlyrics.com',
+'Priority': 'u=1, i',
+'Referer': 'https://www.azlyrics.com/',
+'Sec-Ch-Ua': '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"',
+'Sec-Ch-Ua-Mobile': '?0',
+'Sec-Ch-Ua-Platform': '"Windows"',
+'Sec-Fetch-Dest': 'empty',
+'Sec-Fetch-Mode': 'cors',
+'Sec-Fetch-Site': 'same-site',
+'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36'
 }
 })
 const $ = cheerio.load(html)

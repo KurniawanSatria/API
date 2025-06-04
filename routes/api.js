@@ -253,16 +253,16 @@ res.status(500).send('Failed to load anime image.');
 });
 
 router.get("/soundcloud", async(req, res) => {
-var { query } = req.query;
-if (!query) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter query.'})
-let r = await SoundCloud.search(query)
+var { q } = req.query;
+if (!q) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter q.'})
+let r = await SoundCloud.search(q)
 res.json(r)
 })
 
 router.get("/spotify", async(req, res) => {
-var { query } = req.query;
-if (!query) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter query.'})
-let r = await spotifySearch(query)
+var { q } = req.query;
+if (!q) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter q.'})
+let r = await spotifySearch(q)
 res.json(r)
 })
 
@@ -465,7 +465,6 @@ res.status(200).json(r)
 
 router.get("/lyrics", async(req, res) => {
 let {url, q} = req.query
-//if (!url || !q) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter url or q'})
 if (url && !q) {
 let r = await lyrics(url)
 res.status(200).json(r)
@@ -473,7 +472,7 @@ res.status(200).json(r)
 let {songs} = await sugest(q)
 let r = await lyrics(songs[0].url)
 res.status(200).json(r)
-}
+} else return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'invalid parameters.'})
 })
 
 
