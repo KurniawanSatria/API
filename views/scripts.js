@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', async() => {
+let audio = new Audio("https://cybers-api.vercel.app/assets/audio/AUD-20250604-WA0075.mp3")
+audio.loop = true
 Swal.fire({
 title: 'Yōkoso!',
 text: '',
@@ -11,6 +13,8 @@ customClass: {
 popup: 'rounded-lg shadow-lg',
 confirmButton: 'menu-btn'
 }
+}).then((result) => {
+audio.play()
 });
 })
 
