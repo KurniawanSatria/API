@@ -6,7 +6,6 @@ import path from "path";
 import os from "os";
 import pidusage from "pidusage";
 import { fileURLToPath } from "url";
-import { put, list, del } from "@vercel/blob";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import apiRoutes from "./routes/api.js";
@@ -14,16 +13,18 @@ import apiRoutes from "./routes/api.js";
 const app = express();
 
 //━━━━━━━━━━━━━━━[ App Configuration ]━━━━━━━━━━━━━━━━━//
-app.set("port", 25135);
+app.set("port", process.env.PORT || 80);
+
+
 
 //━━━━━━━━━━━━━━━[ Middleware ]━━━━━━━━━━━━━━━━━//
-//app.enable("trust proxy");
+app.enable("trust proxy");
 app.set("json spaces", 2);
 app.use(express.static(path.join(__dirname, "images")));
 app.use(express.static(path.join(__dirname, "views")));
 app.use(express.static(path.join(__dirname, "views/assets")));
 app.set("view engine", "ejs");
-//app.use(cors());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
