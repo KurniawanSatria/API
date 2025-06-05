@@ -17,10 +17,6 @@ const app = express();
 //━━━━━━━━━━━━━━━[ App Configuration ]━━━━━━━━━━━━━━━━━//
 app.set("port", process.env.PORT || 80);
 
-const proxyList = JSON.parse(fs.readFileSync(path.join(__dirname, "proxies.json"), "utf8"));
-const proxyStrings = proxyList.map(p => `http://${p.ip_address}:${p.port}`)
-const proxy = proxyStrings[Math.floor(Math.random() * proxyStrings.length)]
-export const agent = new HttpsProxyAgent(proxy)
 
 //━━━━━━━━━━━━━━━[ Middleware ]━━━━━━━━━━━━━━━━━//
 app.enable("trust proxy");
@@ -98,5 +94,5 @@ res.status(404).render("404");
 //━━━━━━━━━━━━━━━[ Server Initialization ]━━━━━━━━━━━━━━━━━//
 
 app.listen(app.get("port"), () => {
-console.log("Server Running On Port" + app.get("port"));
+console.log("Server Running On Port " + app.get("port"));
 });
