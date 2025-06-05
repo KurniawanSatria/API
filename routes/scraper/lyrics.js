@@ -15,7 +15,7 @@ const agent = new HttpsProxyAgent(proxy)
 export async function sugest(query) {
 if (!query || query.length < 1) throw new Error('query kosong 😞')
 try {
-const res = await fetch(`https://search.azlyrics.com/suggest.php?q=${encodeURIComponent(query)}`, {httpAgent: agent, timeout: 5000})
+const res = await fetch(`https://search.azlyrics.com/suggest.php?q=${encodeURIComponent(query)}`, {agent, timeout: 5000})
 if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`)
 let body = JSON.parse(await res.text())
 body.songs.forEach(song => {
@@ -31,7 +31,7 @@ return { status: false, error: 'Gagal mengambil sugesti' }
 export async function lyrics(songUrl) {
 if (!songUrl) throw new Error('url kosong 😞')
 try {
-const res = await fetch(songUrl, {httpAgent: agent, timeout: 5000})
+const res = await fetch(songUrl, {agent, timeout: 5000})
 if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`)
 const html = await res.text()
 const $ = cheerio.load(html)
