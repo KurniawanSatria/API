@@ -5,6 +5,7 @@ import si from "systeminformation";
 import path from "path";
 import os from "os";
 import pidusage from "pidusage";
+import fs from "fs";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -52,6 +53,9 @@ app.get("/uptime", (req, res) => {
 res.json({ uptime: clockString(process.uptime()) });
 });
 
+app.get("/audio", (req, res) => {
+res.json(fs.readdirSync(path.join(__dirname, "views/assets/audio")).filter(file => file.endsWith(".mp3")));
+});
 
 app.get("/system", async (req, res) => {
 try {

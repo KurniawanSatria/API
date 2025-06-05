@@ -3,14 +3,61 @@ const modal = document.getElementById('welcome-modal');
 
 // Playlist audio
 const playlist = [
-  "/assets/audio/2 On (feat. ScHoolboy Q).mp3",
-  "/assets/audio/Renegade - Aaryan Shah.mp3",
-  "/assets/audio/chase_Atlantic_-_consume_TikTok_version.mp3",
-  "/assets/audio/playboi_carti_-_draco_louder_prod._phasewave.mp3",
-  "/assets/audio/Chase_Atlantic_-_Swim_tiktok_remix_speed_up_Lyrics_luckily_luckily_luckily_chase_atlantic"
-];
+  "2 On (feat. ScHoolboy Q) - Tinashe.mp3",
+  "bloodline - Ariana Grande.mp3",
+  "Breathe - Olly Alexander (Years & Years).mp3",
+  "M a k e I t T o T h e M o r n i n g - PARTYNEXTDOOR.mp3",
+  "Collide (feat. Tyga) - Justine Skye.mp3",
+  "Confident - Justin Bieber.mp3",
+  "Consume (feat. Goon Des Garcons) - Chase Atlantic.mp3",
+  "Good For You - Selena Gomez.mp3",
+  "Dangerous Woman - Ariana Grande.mp3",
+  "Die For You - The Weeknd.mp3",
+  "Call Out My Name - The Weeknd.mp3",
+  "20 Min - Lil Uzi Vert.mp3",
+  "All Girls Are The Same - Juice WRLD.mp3",
+  "FE!N (feat. Playboi Carti) - Travis Scott.mp3",
+  "Flawlëss (feat. Lil Uzi Vert) - Yeat.mp3",
+  "Gata Only - FloyyMenor.mp3",
+  "God's Plan - Drake.mp3",
+  "HEAVEN AND BACK - Chase Atlantic.mp3",
+  "Hey Daddy (Daddy's Home) - USHER.mp3",
+  "Hope - XXXTENTACION.mp3",
+  "I Was Never There - The Weeknd.mp3",
+  "Ice On My Baby (feat. Kevin Gates) - Remix - Yung Bleu.mp3",
+  "IDGAF (feat. Yeat) - Drake.mp3",
+  "If We Being Rëal - Yeat.mp3",
+  "Karma's A Bitch - Brit Smith.mp3",
+  "KU LO SA - Oxlade.mp3",
+  "Love Me - Lil Wayne.mp3",
+  "Love Me Back (Fayahh Beat) - Trinidad Cardona.mp3",
+  "Lucid Dreams - Juice WRLD.mp3",
+  "Monëy so big - Yeat.mp3",
+  "Not My Problem - Laila!.mp3",
+  "Obsessed - Mariah Carey.mp3",
+  "On That Time - Playboi Carti.mp3",
+  "One Of The Girls (with JENNIE, Lily Rose Depp) - The Weeknd.mp3",
+  "Paro - Nej.mp3",
+  "Popular (with Playboi Carti & Madonna) - From The Idol Vol. 1 (Music from the HBO Original Series) - The Weeknd.mp3",
+  "Ransom - Lil Tecca.mp3",
+  "Reminder - The Weeknd.mp3",
+  "Renegade - Aaryan Shah.mp3",
+  "Rich Baby Daddy (feat. Sexyy Red & SZA) - Drake.mp3",
+  "Rodeo (Remix) - Lah Pat.mp3",
+  "Shameless - Camila Cabello.mp3",
+  "Shut up My Moms Calling - Hotel Ugly.mp3",
+  "Side To Side - Ariana Grande.mp3",
+  "Sky - Playboi Carti.mp3",
+  "Starboy - The Weeknd.mp3",
+  "Swim - Chase Atlantic.mp3",
+  "The Hills - The Weeknd.mp3",
+  "Timeless (feat Playboi Carti) - The Weeknd.mp3",
+  "Under The Influence (Body Language) - Chris Brown.mp3",
+  "Vegas (I Wanna Ride) - Joseline Hernandez.mp3",
+  "YAD - Vanna Rainelle.mp3"
+]
 let currentTrack = 0;
-const audio = new Audio(playlist[currentTrack]);
+const audio = new Audio('/assets/audio/'+playlist[currentTrack]);
 
 document.addEventListener('DOMContentLoaded', () => {
   audio.load();
