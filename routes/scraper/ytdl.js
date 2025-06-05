@@ -1,6 +1,8 @@
 import axios from 'axios';
 import crypto from 'crypto';
+import { HttpsProxyAgent } from 'https-proxy-agent';
 import fetch from 'node-fetch';
+import {agent} from '../../index.js';
 
 const ogmp3 = {
 api: {
@@ -93,7 +95,8 @@ const { data: response } = await axios({
 method,
 url: fe,
 data: method === 'post' ? data : undefined,
-headers: ogmp3.headers
+headers: ogmp3.headers,
+timeout: 10000,
 });
 return {
 status: true,
@@ -384,7 +387,8 @@ method,
 url: `${endpoint.startsWith('http') ? '' : savetube.api.base}${endpoint}`,
 data: method === 'post' ? data : undefined,
 params: method === 'get' ? data : undefined,
-headers: savetube.headers
+headers: savetube.headers,
+timeout: 10000,
 });
 return {
 status: true,
@@ -518,13 +522,13 @@ const id = url.match(/(?:youtu\.be\/|youtube\.com\/(?:.*v=|.*\/|.*embed\/))([^&?
 if (!id) throw new Error('Gagal mendapatkan ID video');
 
 const convertURL = init.convertURL + `&v=${id}&f=mp4&_=${Math.random()}`;
-const converts = await fetch(convertURL, { headers });
+const converts = await fetch(convertURL, { timeout: 10000, headers });
 const convert = await converts.json();
 
 let info = {};
 for (let i = 0; i < 5; i++) {
 await new Promise(resolve => setTimeout(resolve, 2000));
-const progressRes = await fetch(convert.progressURL, { headers });
+const progressRes = await fetch(convert.progressURL, { timeout: 10000, headers });
 info = await progressRes.json();
 if (info.progress === 3) break;
 }

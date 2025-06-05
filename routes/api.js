@@ -422,11 +422,13 @@ router.get("/spotplay", async(req, res) => {
 router.get("/lyrics", async(req, res) => {
   let {url, q} = req.query
   if (url && !q) {
-    let {data} = await axios.get('http://fr3.spaceify.eu:25135/v1/lyrics?url='+url)
-    res.status(200).json(data)
+    let r = await lyrics(url)
+    res.status(200).json(r)
   } else if (q && !url) {
-    let {data} = await axios.get('http://fr3.spaceify.eu:25135/v1/lyrics?q='+q)
-    res.status(200).json(data)
+    let {songs} = await sugest(q)
+    if (!songs || songs.length === 0) return res.status(404).json({ status: false, developer: 'https://t.me/krniwnstria/', message: '[ ! ] No songs found for the given query.' });
+    let r = await lyrics(songs[0].url)
+    res.status(200).json(r)
   } else return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: '[ ! ] invalid parameters.'})
 })
 

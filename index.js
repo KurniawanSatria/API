@@ -3,6 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import si from "systeminformation";
 import path from "path";
+import { HttpsProxyAgent } from 'https-proxy-agent'
 import os from "os";
 import pidusage from "pidusage";
 import fs from "fs";
@@ -96,3 +97,20 @@ res.status(404).render("404");
 app.listen(app.get("port"), () => {
 console.log("Server Running On http://fr3.spaceify.eu:" + app.get("port"));
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+const proxyList = JSON.parse(fs.readFileSync(path.join(__dirname, "proxies.json"), "utf8"));
+const proxyStrings = proxyList.map(p => `http://${p.ip_address}:${p.port}`)
+const proxy = proxyStrings[Math.floor(Math.random() * proxyStrings.length)]
+export const agent = new HttpsProxyAgent(proxy)

@@ -1,11 +1,12 @@
 import axios from 'axios';
 import qs from 'qs';
 import * as cheerio from 'cheerio';
+import { agent } from '../../index.js';
 
 
 export async function igDownloader(url) {
 const { data } = await axios.post('https://snapins.ai/action.php',
-qs.stringify({ url }),{headers: { 'content-type': 'application/x-www-form-urlencoded' }})
+qs.stringify({ url }),{httpAgent: agent, headers: { 'content-type': 'application/x-www-form-urlencoded' }})
 const res = data.data
 const mediaList = res.map(m => {
 const obj = {}

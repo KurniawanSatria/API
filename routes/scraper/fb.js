@@ -1,10 +1,10 @@
 import axios from 'axios';
 import qs from 'qs';
 import * as cheerio from 'cheerio';
-
+import { agent } from '../../index.js';
 
 export async function fbDownloader(url) {
-const { data } = await axios.post('https://www.fdown.world/result.php',qs.stringify({ codehap_link:url, codehap:false }),
+const { data } = await axios.post('https://www.fdown.world/result.php',qs.stringify({ codehap_link:url, codehap:false }, {httpAgent: agent, timeout: 10000}),
 {headers: { 
 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
 'cookie': 'codehap_domain=www.fdown.world',
