@@ -20,7 +20,6 @@ app.set("port", process.env.PORT || 80);
 //━━━━━━━━━━━━━━━[ Middleware ]━━━━━━━━━━━━━━━━━//
 app.enable("trust proxy");
 app.set("json spaces", 2);
-app.use(express.static(path.join(__dirname, "images")));
 app.use(express.static(path.join(__dirname, "views")));
 app.use(express.static(path.join(__dirname, "views/assets")));
 app.set("view engine", "ejs");

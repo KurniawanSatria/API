@@ -1,24 +1,46 @@
-document.addEventListener('DOMContentLoaded', async() => {
-let audio = new Audio("https://cybers-api.vercel.app/assets/audio/AUD-20250604-WA0075.mp3")
+const modal = document.getElementById('welcome-modal');
+const audio = new Audio("/assets/audio/JUDAS.mp3")
 audio.loop = true
-Swal.fire({
-title: 'Yōkoso!',
-text: '',
-imageUrl:'https://avatanplus.com/files/resources/original/5eb247f13a723171e8690657.png',
-imageWidth: 200,
-imageHeight: 200,
-background: '#09002F',
-color: '#A1B1FF',
-customClass: {
-popup: 'rounded-lg shadow-lg',
-confirmButton: 'menu-btn'
-}
-}).then((result) => {
-audio.play()
-});
+document.addEventListener('DOMContentLoaded', () => {
+audio.load()
 })
+modal.showModal(); 
+modal.addEventListener('close', () => {
+modal.close();
+audio.play();
+});
+
+// Baca system theme saat page load
+const themeToggles = document.querySelectorAll('.theme-controller');
+const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const htmlElement = document.documentElement;
+
+const syncThemeToggles = (isDark) => {
+themeToggles.forEach(toggle => {
+toggle.checked = isDark;
+});
+htmlElement.setAttribute('data-theme', isDark ? 'night' : 'dracula');
+localStorage.setItem('theme', isDark ? 'night' : 'dracula');
+};
 
 
+// Load dari localStorage
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) syncThemeToggles(savedTheme === 'night');
+else syncThemeToggles(isDarkMode);
+
+
+// Listener buat semua toggle
+themeToggles.forEach(toggle => {
+toggle.addEventListener('change', () => {
+syncThemeToggles(toggle.checked);
+});
+});
+
+// Listener buat perubahan system theme
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+syncThemeToggles(e.matches);
+});
 
 
 setInterval(async () => {

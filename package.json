@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src --ext js",
-    "start": "nodemon src --ext js"
+    "dev": "nodemon src --watch routes",
+    "start": "nodemon src --watch routes"
   },
   "keywords": [],
   "author": "",
