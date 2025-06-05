@@ -14,7 +14,8 @@ const agent = new HttpsProxyAgent(proxy)
 
 
 export async function dyDownloader(url) {
-const { data } = await axios.get(`https://dlpanda.com/?url=${url}&token=G7eRpMaa`, {httpAgent: agent, timeout: 10000})
+const res = await fetch(`https://dlpanda.com/?url=${url}&token=G7eRpMaa`, { agent, timeout: 10000})
+const data = await res.text()
 const $ = cheerio.load(data)
 const downloadUrls = []
 let videoSrc = $('div.domain-info-wrap video source').attr('src')
