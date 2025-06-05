@@ -32,7 +32,7 @@ const playlist = [
   'Reminder - The Weeknd.mp3',
 ]
 let currentTrack = 0;
-const audio = new Audio('/assets/audio/' + playlist[currentTrack]);
+const audio = new Audio(`/assets/audio/${playlist[currentTrack]}`);
 
 document.addEventListener('DOMContentLoaded', () => {
   audio.load();
@@ -47,7 +47,7 @@ modal.addEventListener('close', () => {
 // Ganti ke lagu berikutnya saat audio selesai
 audio.addEventListener('ended', () => {
   currentTrack = (currentTrack + 1) % playlist.length;
-  audio.src = playlist[currentTrack];
+  audio.src = `/assets/audio/${playlist[currentTrack]}`;
   audio.play();
 });
 
