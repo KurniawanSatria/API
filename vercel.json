@@ -11,6 +11,5 @@
       "src": "/(.*)",
       "dest": "/"
     }
-  ],
-  "excludeFiles": "views/assets/audio/**"
+  ]
 }
