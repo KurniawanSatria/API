@@ -29,6 +29,8 @@ import { igDownloader } from './scraper/instagram.js';
 import { fbDownloader } from './scraper/fb.js';
 import { threadsDownloader } from './scraper/threads.js';
 import { lyrics, sugest } from './scraper/lyrics.js';
+import { dyDownloader } from './scraper/douyin.js';
+
 
 //━━━━━━━━━━[ UTILITY FUNCTIONS ]━━━━━━━━━━━━//
 const cache = {}; // Simple in-memory cache
@@ -263,30 +265,37 @@ router.get('/anime', async (req, res) => {
 });
 
 //━━━━━━━━━━[ MUSIC: YOUTUBE, SPOTIFY, SOUNDCLOUD, LYRICS ]━━━━━━━━━━━━//
+router.get("/douyindl", async(req, res) => {
+  var { url } = req.query;
+  if (!url) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter url.'})
+  let r = await dyDownloader(url)
+  res.json(r)
+})
+
 router.get("/igdl", async(req, res) => {
-  var { q } = req.query;
-  if (!q) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter q.'})
-  let r = await igDownloader(q)
+  var { url } = req.query;
+  if (!url) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter url.'})
+  let r = await igDownloader(url)
   res.json(r)
 })
 
 router.get("/xdl", async(req, res) => {
-  var { q } = req.query;
-  if (!q) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter q.'})
-  let r = await xDownloader(q)
+  var { url } = req.query;
+  if (!url) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter url.'})
+  let r = await xDownloader(url)
   res.json(r)
 })
 router.get("/threadsdl", async(req, res) => {
-  var { q } = req.query;
-  if (!q) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter q.'})
-  let r = await threadsDownloader(q)
+  var { url } = req.query;
+  if (!url) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter url.'})
+  let r = await threadsDownloader(url)
   res.json(r)
 })
 
 router.get("/fbdl", async(req, res) => {
-  var { q } = req.query;
-  if (!q) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter q.'})
-  let r = await fbDownloader(q)
+  var { url } = req.query;
+  if (!url) return res.status(400).json({ status : false, developer: 'https://t.me/krniwnstria/', message: 'missing parameter url.'})
+  let r = await fbDownloader(url)
   res.json(r)
 })
 
