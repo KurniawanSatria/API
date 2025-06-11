@@ -1,6 +1,7 @@
 // ========== Modal & Audio ==========
 const modal = document.getElementById('welcome-modal');
 const playlist = [
+  'ssstik.io_1749621584342.mp3',
   'Consume (feat. Goon Des Garcons) - Chase Atlantic.mp3',
   'Swim - Chase Atlantic.mp3',
   'Renegade - Aaryan Shah.mp3',
