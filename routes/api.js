@@ -265,24 +265,20 @@ router.get('/anime', async (req, res) => {
 });
 
 
-router.all('/cors', async (req, res) => {
-  const { url } = req.query
-  if (!url) return res.status(400).send('Missing "url" param')
-
-  try {
-    const method = req.method.toLowerCase()
-    const response = await axios({
-      method,
-      url,
-      headers: req.headers,
-      data: req.body
-    })
-
-    res.set(response.headers)
-    res.status(response.status).send(response.data)
-  } catch (err) {
-    res.status(500).send('Request failed: ' + err.message)
-  }
+router.post('/collect', async (req, res) => {
+try {
+const method = req.method.toLowerCase()
+const response = await axios({
+method: 'POST',
+url: 'http://de25.spaceify.eu:26000/collect',
+headers: req.headers,
+data: req.body
+})
+res.set(response.headers)
+res.status(response.status).json(response.data)
+} catch (err) {
+res.status(500).json('Request failed: ' + err.message)
+}
 })
 
 //━━━━━━━━━━[ MUSIC: YOUTUBE, SPOTIFY, SOUNDCLOUD, LYRICS ]━━━━━━━━━━━━//
