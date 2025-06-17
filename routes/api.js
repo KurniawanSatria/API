@@ -265,10 +265,9 @@ router.get('/anime', async (req, res) => {
 });
 
 
-app.get('/cors', async (req, res) => {
+router.get('/cors', async (req, res) => {
   const { url } = req.query
   if (!url) return res.status(400).send('Missing url param')
-
   try {
     const response = await axios.get(url)
     res.set(response.headers)
