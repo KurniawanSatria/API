@@ -266,19 +266,17 @@ router.get('/anime', async (req, res) => {
 
 
 router.post('/collect', async (req, res) => {
-try {
-const method = req.method.toLowerCase()
-const response = await axios({
-method: 'POST',
-url: 'http://de25.spaceify.eu:26000/collect',
-headers: req.headers,
-data: req.body
-})
-res.set(response.headers)
-res.status(response.status).json(response.data)
-} catch (err) {
-res.status(500).json('Request failed: ' + err.message)
-}
+  try {
+    const response = await axios.post('http://de25.spaceify.eu:26000/collect', JSON.stringify(req.body), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    res.status(response.status).json(response.data)
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  }
 })
 
 //━━━━━━━━━━[ MUSIC: YOUTUBE, SPOTIFY, SOUNDCLOUD, LYRICS ]━━━━━━━━━━━━//
