@@ -265,7 +265,7 @@ router.get('/anime', async (req, res) => {
 });
 
 
-app.all('/cors', async (req, res) => {
+router.all('/cors', async (req, res) => {
   const { url } = req.query
   if (!url) return res.status(400).send('Missing "url" param')
 
