@@ -264,6 +264,20 @@ router.get('/anime', async (req, res) => {
   }
 });
 
+
+app.get('/cors', async (req, res) => {
+  const { url } = req.query
+  if (!url) return res.status(400).send('Missing url param')
+
+  try {
+    const response = await axios.get(url)
+    res.set(response.headers)
+    res.send(response.data)
+  } catch (err) {
+    res.status(500).send('Error fetching URL')
+  }
+})
+
 //━━━━━━━━━━[ MUSIC: YOUTUBE, SPOTIFY, SOUNDCLOUD, LYRICS ]━━━━━━━━━━━━//
 router.get("/douyindl", async(req, res) => {
   var { url } = req.query;
