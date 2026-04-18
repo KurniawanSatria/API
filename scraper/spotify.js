@@ -91,10 +91,12 @@ export default async function Spotify(url) {
       {
         responseType: "arraybuffer",
         headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/122 Safari/537.36",
+          "Accept": "*/*",
+          "Connection": "keep-alive",
           "Content-Type": "application/json",
           "Origin": "https://spotitrack.com",
           "Referer": "https://spotitrack.com/",
-          "User-Agent": "Mozilla/5.0"
         },
         maxRedirects: 5
       }
@@ -105,27 +107,27 @@ export default async function Spotify(url) {
     const fileName = `${meta.title}.mp3`.replace(/[\\/:*?"<>|]/g, "")
 
     const form = new FormData()
-form.append("reqtype", "fileupload")
-form.append("fileToUpload", buffer, {
-  filename: "audio.mp3",
-  contentType: "audio/mpeg"
-})
+    form.append("reqtype", "fileupload")
+    form.append("fileToUpload", buffer, {
+      filename: "audio.mp3",
+      contentType: "audio/mpeg"
+    })
 
-const { data: uploadRes } = await axios.post(
-  "https://catbox.moe/user/api.php",
-  form,
-  {
-    headers: form.getHeaders(),
-    maxContentLength: Infinity,
-    maxBodyLength: Infinity
-  }
-)
+    const { data: uploadRes } = await axios.post(
+      "https://catbox.moe/user/api.php",
+      form,
+      {
+        headers: form.getHeaders(),
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity
+      }
+    )
 
-if (!uploadRes || !uploadRes.startsWith("http")) {
-  throw new Error("Upload failed")
-}
+    if (!uploadRes || !uploadRes.startsWith("http")) {
+      throw new Error("Upload failed")
+    }
 
-const cleanUrl = uploadRes.trim()
+    const cleanUrl = uploadRes.trim()
 
     return {
       status: true,
