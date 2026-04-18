@@ -54,7 +54,7 @@ function parseHTML(html) {
     return media
 }
 
-export async function Instagram(url) {
+export default async function Instagram(url) {
     try {
         if (!url) {
             return {
